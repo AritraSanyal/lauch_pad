@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:launch_pad/widgets/build_all_pads.dart';
+
 
 class LauchPad extends StatefulWidget {
   const LauchPad({super.key});
@@ -13,20 +15,20 @@ class _LauchPadState extends State<LauchPad> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("LauchPad"),
+        title: Text("LauchPad",
+        style: TextStyle(
+          color: Colors.white,
+        ),
+        ),
         backgroundColor: Colors.black,
 
       ),
       body: Center(
-        child: Container(
-          child: Text("LaunchPad Page",
-          style: TextStyle(
-            fontSize: 20,
-            color: Colors.white
-          ),
-          ),
-        ),
+        child: buildAllPads(),
       ),
     );
   }
 }
+
+
+
