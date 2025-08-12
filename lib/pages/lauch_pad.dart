@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:launch_pad/widgets/build_all_pads.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 
 class LauchPad extends StatefulWidget {
   const LauchPad({super.key});
@@ -16,9 +16,11 @@ class _LauchPadState extends State<LauchPad> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text("LauchPad",
-        style: TextStyle(
+        style: GoogleFonts.montserrat(
           color: Colors.white,
-        ),
+          fontSize: 30
+
+        )
         ),
         backgroundColor: Colors.black,
 
