@@ -16,7 +16,7 @@ class _LauchPadState extends State<LauchPad> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text("LauchPad",
-        style: GoogleFonts.montserrat(
+        style: GoogleFonts.orbitron(
           color: Colors.white,
           fontSize: 30
 
