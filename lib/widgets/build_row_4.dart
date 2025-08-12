@@ -12,10 +12,10 @@ class buildRow4 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        soundPad(soundFile: soundList[0],colorList: [Colors.blue[50]!, Colors.blue[400]!],),
-        soundPad(soundFile: soundList[1],colorList: [Colors.red, Colors.pink[400]!],),
-        soundPad(soundFile: soundList[2],colorList: [Colors.blue[50]!, Colors.blue[400]!],),
-        soundPad(soundFile: soundList[3],colorList: [Colors.purple[100]!, Colors.purple],)
+        soundPad(soundFile: soundList[0],colorList: [Color(0xffADCBFC), Color(0xff067CCB),],),
+        soundPad(soundFile: soundList[1],colorList: [Color (0xffff2525), Color(0xffc40050),],),
+        soundPad(soundFile: soundList[2],colorList: [Color (0xffADCBFC), Color(0xff067CCB),],),
+        soundPad(soundFile: soundList[3],colorList: [Color (0xffE247FC), Color (0xffA23AB7),],)
       ],
     );
   }

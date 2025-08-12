@@ -13,37 +13,46 @@ class soundPad extends StatefulWidget {
 
 class _soundPadState extends State<soundPad> {
   // final _audioPlayer = AudioPlayer();
-  bool _isPlaying = false;
+  late Color _colorCenter;
+  late Color _colorOutline;
+
+  @override
+  void initState() {
+    _colorCenter = widget.colorList[0];
+    _colorOutline = widget.colorList[1];
+    super.initState();
+  }
 
   Future<void> _playSound() async {
-    setState(() {
-      _isPlaying = true;
+    setState(()  {
+      _colorCenter = Colors.white;
+      _colorOutline = Colors.white;
+      //each tap gets its own AudioPlayer object
+      final _audioPlayer = AudioPlayer();
+      _audioPlayer.play(AssetSource(widget.soundFile));
     });
 
-    //each tap gets its own AudioPlayer object
-    final _audioPlayer = AudioPlayer();
-    await _audioPlayer.play(AssetSource(widget.soundFile));
-    _audioPlayer.onPlayerComplete.listen((_) {
-      setState(() {
-        _isPlaying = false;
-      });
+    await Future.delayed(Duration(milliseconds: 1000));
+    setState(() {
+      _colorCenter = widget.colorList[0];
+      _colorOutline = widget.colorList[1];
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return GestureDetector(
       onTap: _playSound,
       child: Container(
-        height: 100,
-        width: 90,
+        height: height / 8.2,
+        width: width / 4.2,
         margin: EdgeInsets.all(1.5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          color: _isPlaying ? Colors.white : null,
-          gradient: _isPlaying
-              ? null
-              : RadialGradient(colors: widget.colorList, radius: 0.5),
+          gradient: RadialGradient(
+              colors: [_colorCenter, _colorOutline], radius: 0.5),
         ),
       ),
     );
